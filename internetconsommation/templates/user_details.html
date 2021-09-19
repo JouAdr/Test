@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <title>Blueline Test</title>
+    </head>
+
+    <body>
+        <h1 style="text-align:center"  >Details connection</h1>        
+        <h4 style="text-align:center"  >Total connection for {{user.username}} is 
+
+            {% for users,totals in consommations_total %}
+                {% if users == user.username %}
+                    {{totals}}
+                {% endif %}
+            {% endfor %}
+            Ko 
+        </h4>
+    </body>
+
+</html>
