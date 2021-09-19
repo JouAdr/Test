@@ -1,15 +1,12 @@
-<!DOCTYPE html>
-<html>
+{% extends 'base.html' %}
 
-    <head>
-        <meta charset="utf-8">
-        <title>Blueline Test</title>
-    </head>
+{% block title %}
+    <h1 style="text-align:center"  >Details connection</h1>        
+{% endblock %}
 
-    <body>
-        <h1 style="text-align:center"  >Details connection</h1>        
+{% block content %}
+    <!-- just leaving it empty for now. we will add core here soon. -->
         <h4 style="text-align:center"  >Total connection for {{user.username}} is 
-
             {% for users,totals in consommations_total %}
                 {% if users == user.username %}
                     {{totals}}
@@ -17,6 +14,4 @@
             {% endfor %}
             Ko 
         </h4>
-    </body>
-
-</html>
+{% endblock %}

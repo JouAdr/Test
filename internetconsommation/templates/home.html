@@ -1,43 +1,32 @@
-<!DOCTYPE html>
-<html>
+{% extends 'base.html' %}
 
-    <head>
-        <meta charset="utf-8">
-        <title>Blueline Test</title>
-    </head>
+{% block title %}
+    <h1 style="text-align:center">Internet Consommation</h1><hr>    
+{% endblock %}
 
-    <body>
-        <h1 style="text-align:center" >Internet Consumption for One Day</h1>
-        <hr>
-        <h3 style="text-align:center" >Consommation detail</h3>
-        <div>
-            <table style="text-align:center" border="2">
-                <thead>
-                    <tr>
-                        <th>user</th>
-                        <th>mail</th>
-                        <th>date</th>
-                        <th>upload (Ko)</th>
-                        <th>download (Ko) </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for consommation in consommations %}
-                    <tr>
-                        <td>
-                            <a href="{% url 'user_details' consommation.user_id %}">{{consommation.user}}</a>
-                        </td>
-                        <td>{{consommation.user.email}}</td>
-                        <td>{{consommation.consumption_date}}</td>
-                        <td>{{consommation.upload}}</td>
-                        <td>{{consommation.download}}</td>
-                    </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
-        </div>
-
-        <hr>
-    </body>
-
-</html>
+{% block content %}
+    <h3  >Consommation detail</h3>
+    <table style="text-align:center" border="2">
+        <thead>
+            <tr>
+                <th>user</th>
+                <th>mail</th>
+                <th>date</th>
+                <th>upload (Ko)</th>
+                <th>download (Ko) </th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for consommation in consommations %}
+            <tr>
+                <td> <a href="{% url 'user_details' consommation.user_id %}">{{consommation.user}}</a></td>
+                <td>{{consommation.user.email}}</td>
+                <td>{{consommation.consumption_date}}</td>
+                <td>{{consommation.upload}}</td>
+                <td>{{consommation.download}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <hr>
+{% endblock %}

@@ -20,7 +20,5 @@ from consommationapp import views
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', views.home, name='home'),
-    # url(r'^id/', views.user_details, name='user_details'),
     url(r'^(?P<pk>\d+)/$', views.user_details, name='user_details'),
-
 ]

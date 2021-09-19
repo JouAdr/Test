@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 from django.http import Http404
 from .models import InternetConsumption
 
-def home(request):
+def home(request): 
     consommations = InternetConsumption.objects.all()
     return render(request, 'home.html', {'consommations':consommations})
 
